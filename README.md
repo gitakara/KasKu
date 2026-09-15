@@ -23,6 +23,5 @@
 
 ## Cara Penggunaan
 
-1. Clone repositori ini atau unduh file zip:
-   ```bash
-   git clone [https://github.com/username-kamu/kasku.git](https://github.com/username-kamu/kasku.git)
+1. Clone repositori ini atau unduh file zip
+2. Atau [klik di sini](https://kasku-9rs.pages.dev/)
