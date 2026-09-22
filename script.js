@@ -4,9 +4,9 @@ const themeIcon = document.getElementById('themeIcon');
 
 function updateThemeIcon() {
     if (document.documentElement.classList.contains('dark')) {
-        themeIcon.textContent = '☀️';
+        themeIcon.textContent = 'light_mode';
     } else {
-        themeIcon.textContent = '🌙';
+        themeIcon.textContent = 'dark_mode';
     }
 }
 
