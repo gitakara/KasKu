@@ -11,6 +11,8 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- Google Material Symbols Outlined -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
@@ -22,25 +24,25 @@
         <div class="flex items-center justify-between mb-8">
             <h1 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">KasKu Finance Tracker</h1>
             <div class="flex items-center gap-4">
-                <button id="themeToggle" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 transition shadow-sm">
-                    <span id="themeIcon">🌙</span>
+                <button id="themeToggle" class="p-2 rounded-lg bg-slate-000 dark:bg-slate-000 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 transition shadow-sm flex items-center justify-center">
+                    <span id="themeIcon" class="material-symbols-outlined text-xl select-none">dark_mode</span>
                 </button>
             </div>
         </div>
         
         <!-- Summary Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 p-6 relative overflow-hidden">
+            <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-400 dark:border-slate-700 p-6 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
                 <h3 class="text-slate-500 dark:text-slate-400 text-sm uppercase font-semibold tracking-wider">Total Pemasukan</h3>
                 <p class="text-3xl font-bold text-green-600 dark:text-green-400 mt-2" id="totalIncome">Rp 0</p>
             </div>
-            <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 p-6 relative overflow-hidden">
+            <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-400 dark:border-slate-700 p-6 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-rose-500"></div>
                 <h3 class="text-slate-500 dark:text-slate-400 text-sm uppercase font-semibold tracking-wider">Total Pengeluaran</h3>
                 <p class="text-3xl font-bold text-rose-600 dark:text-rose-400 mt-2" id="totalExpense">Rp 0</p>
             </div>
-            <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 p-6 relative overflow-hidden">
+            <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-400 dark:border-slate-700 p-6 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
                 <h3 class="text-slate-500 dark:text-slate-400 text-sm uppercase font-semibold tracking-wider">Sisa Saldo</h3>
                 <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 mt-2" id="totalBalance">Rp 0</p>
@@ -48,30 +50,30 @@
         </div>
 
         <!-- Add Transaction Form -->
-        <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 p-6 mb-8">
+        <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-400 dark:border-slate-700 p-6 mb-8">
             <h2 class="text-xl font-semibold mb-5 text-slate-700 dark:text-slate-200">Tambah Transaksi Baru</h2>
             <form id="transactionForm" class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
                 <!-- Baris Pertama (Desktop) -->
                 <div class="md:col-span-4">
                     <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Tanggal</label>
-                    <input type="date" id="date" required class="w-full bg-white dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white rounded-lg shadow-sm p-2.5 border focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    <input type="date" id="date" required class="w-full bg-white dark:bg-slate-700 border-slate-400 dark:border-slate-600 text-slate-900 dark:text-white rounded-lg shadow-sm p-2.5 border focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                 </div>
                 <div class="md:col-span-8">
                     <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Keterangan</label>
-                    <input type="text" id="description" required placeholder="Contoh: Gaji, Makan, Listrik" class="w-full bg-white dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white rounded-lg shadow-sm p-2.5 border focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    <input type="text" id="description" required placeholder="Contoh: Gaji, Makan, Listrik" class="w-full bg-white dark:bg-slate-700 border-slate-400 dark:border-slate-600 text-slate-900 dark:text-white rounded-lg shadow-sm p-2.5 border focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                 </div>
                 
                 <!-- Baris Kedua (Desktop) -->
                 <div class="md:col-span-4">
                     <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Jenis</label>
-                    <select id="type" class="w-full bg-white dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white rounded-lg shadow-sm p-2.5 border focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    <select id="type" class="w-full bg-white dark:bg-slate-700 border-slate-400 dark:border-slate-600 text-slate-900 dark:text-white rounded-lg shadow-sm p-2.5 border focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                         <option value="income">Pemasukan</option>
                         <option value="expense">Pengeluaran</option>
                     </select>
                 </div>
                 <div class="md:col-span-4">
                     <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Nominal (Rp)</label>
-                    <input type="text" id="amountDisplay" required placeholder="0" class="w-full bg-white dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white rounded-lg shadow-sm p-2.5 border focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    <input type="text" id="amountDisplay" required placeholder="0" class="w-full bg-white dark:bg-slate-700 border-slate-400 dark:border-slate-600 text-slate-900 dark:text-white rounded-lg shadow-sm p-2.5 border focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                 </div>
                 <div class="md:col-span-4">
                     <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition shadow-sm">
@@ -82,7 +84,7 @@
         </div>
 
         <!-- Transaction List & Export -->
-        <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 p-6 overflow-hidden">
+        <div class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-slate-400 dark:border-slate-700 p-6 overflow-hidden">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                 <h2 class="text-xl font-semibold text-slate-700 dark:text-slate-200">Riwayat Transaksi</h2>
                 <div class="flex gap-2 w-full sm:w-auto">
@@ -104,16 +106,16 @@
             </div>
             
             <!-- KODE FILTER -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 bg-slate-50 dark:bg-zinc-900/50 p-4 rounded-lg border border-slate-100 dark:border-slate-700">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 bg-slate-50 dark:bg-zinc-900/50 p-4 rounded-lg border border-slate-400 dark:border-slate-700">
                 <!-- Filter Keterangan -->
                 <div>
                     <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Cari Keterangan</label>
-                    <input type="text" id="filterDescription" placeholder="Ketik kata kunci..." class="w-full bg-white dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white rounded-md shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm">
+                    <input type="text" id="filterDescription" placeholder="Ketik kata kunci..." class="w-full bg-white dark:bg-slate-700 border-slate-400 dark:border-slate-600 text-slate-900 dark:text-white rounded-md shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm">
                 </div>
                 <!-- Filter Jenis -->
                 <div>
                     <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Filter Jenis</label>
-                    <select id="filterType" class="w-full bg-white dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white rounded-md shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm">
+                    <select id="filterType" class="w-full bg-white dark:bg-slate-700 border-slate-400 dark:border-slate-600 text-slate-900 dark:text-white rounded-md shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm">
                         <option value="all">Semua Jenis</option>
                         <option value="income">Pemasukan Saja</option>
                         <option value="expense">Pengeluaran Saja</option>
@@ -122,14 +124,14 @@
                 <!-- Sort Tanggal -->
                 <div>
                     <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Urutkan Tanggal</label>
-                    <select id="sortDate" class="w-full bg-white dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white rounded-md shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm">
+                    <select id="sortDate" class="w-full bg-white dark:bg-slate-700 border-slate-400 dark:border-slate-600 text-slate-900 dark:text-white rounded-md shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm">
                         <option value="desc">Terbaru ke Terlama</option>
                         <option value="asc">Terlama ke Terbaru</option>
                     </select>
                 </div>
             </div>
 
-            <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-700">
+            <div class="overflow-x-auto rounded-lg border border-slate-400 dark:border-slate-700">
                 <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
                     <thead class="bg-slate-50 dark:bg-slate-700">
                         <tr>
